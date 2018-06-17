@@ -30,6 +30,12 @@ class Home extends CI_Controller
 		$this->load->view('home',$data);
 
 	}
+
+	public function careers(){
+		$this->load->view('careers');
+	}
+
+
 	/*SERVICE MODAL*/
     public function fetch_service_modal()
     {
@@ -207,6 +213,7 @@ class Home extends CI_Controller
 		$files = $_FILES;
 		
 		$cpt = count($_FILES['userfile']['name']);
+
 		for($i=0; $i<$cpt; $i++)
 		{           
 			$_FILES['userfile']['name']=$img_name=$files['userfile']['name'][$i];
@@ -234,11 +241,19 @@ class Home extends CI_Controller
 			$names= implode(',', $img);
 			$data['image']=$names;/*serialize($names);*/
 		} 
-	          // echo "<pre>";
-	          // print_r($data);
-	          // exit;
-		$this->Common_model->submit_higher($data);
 
+	      /*echo "<pre>";
+	      print_r($data);
+	      exit;*/
+
+		$this->Common_model->submit_higher($data);
+		$sent = $this->sendmail($name,$phone,$email,$institution,$course,$description,$date,$names);
+		
+		$var=1;
+		echo $var;	     
+	}
+
+	private function sendmail($name,$phone,$email,$institution,$course,$description,$date,$names){
 		$config = Array(        
 			'protocol' => 'sendmail',
 			'smtp_host' => 'localhost',
@@ -289,9 +304,8 @@ class Home extends CI_Controller
 		$this->email->subject('HIGHER EDUCATION');
 		$this->email->message($message);
 		$this->email->attach($path.'/'.$names);	
-		$sent=$this->email->send();
-		$var=1;
-		echo $var;	     
+
+		$this->email->send();
 	}
 
 	private function set_vehicle_upload_options4()
@@ -1072,8 +1086,8 @@ public function save_details()
 		
 		$this->email->subject('Enquiry from website',$subject);
 		$this->email->message($message);	
-		$sent=$this->email->send();
-		$var="not_exist";
+		//$sent=$this->email->send();
+		$var="OK";
 		echo $var;
 		
 

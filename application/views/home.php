@@ -49,6 +49,8 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#facts">Study Abroad</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#team">Team</a></li>
           <li class="menu-has-children"><a href="">Partners</a>
             <ul>
               <li><a href="<?php echo base_url('home/become_a_partner')?>">Become A Partner</a></li>
@@ -57,6 +59,7 @@
               <li><a href="#">Investores</a></li>
             </ul>
           </li>
+          <li><a href="#">Careers</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -277,7 +280,116 @@
       </div>
     </section><!-- #services -->
 
-    <section id="skills">
+    
+    <!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+        <header class="section-header">
+          <h3>Study Abroad</h3>
+          <p>Enroll now for our STUDY ABROAD PROGRAM</p>
+          <p><a class="cta-btn" onclick="show_form()" href="javascript:void(0);">Enroll Now</a></p>
+
+        </header>
+        <div class="row counters">
+          <div class="col-md-4 text-center box">
+            <!--<span data-toggle="counter-up"></span>-->
+            <h4 class="title">STUDY MEDICINE</h4>
+              <p>Study Medicine in Poland</p>
+              <p>Study Medicine in Hungary</p>
+              <p>Study Medicine in Moldova</p>
+              <p>Study Medicine in Canada</p>
+              <p>We are not limited.........</p>
+          </div>
+          <div class="col-md-4 text-center box ">
+            <!--<span data-toggle="counter-up"></span>-->
+            <h4 class="title">STUDY ENGINEERING</h4>
+              <p>Study Engineering in Poland</p>
+              <p>Study Engineering in Canada</p>
+              <p>Study Engineering in India</p>
+              <p>Study Engineering in Australia</p>
+              <p>Study Engineering in Newsland</p>
+              <p>and much more.........</p>
+          </div>
+          <div class="col-md-4 text-center box ">
+            <!--<span data-toggle="counter-up"></span>-->
+            <h4 class="title">STUDY BUSINESS</h4>
+              <p>Study Business in Canada</p>
+              <p>Study Business in Hungary</p>
+              <p>Harvard Business School</p>
+              <p>University of Pennsylvania</p>
+              <p>Still counts.........</p>
+          </div>
+        </div>
+        <!--<div class="facts-img">
+            <img src="<?php echo base_url('assets/img/facts-img.png');?>" alt="" class="img-fluid">
+        </div>-->
+        
+      </div>
+
+      <div id="enrollment_form" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div class="col-md-12">
+                <div class="form">
+                  <form action="" method="post" role="form" id="study_form" enctype="multipart/form-data">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required/>
+                        <div class="validation"></div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"  required/>
+                        <div class="validation"></div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required/>
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="institution" id="institution" placeholder="Institution/Organization:" required/>
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" name="course" id="course" placeholder="Select your course">
+                        <option value="medicine" selected>Study Medicine</option>
+                                <option value="engineering">Study Engineering</option>
+                                <option value="business">Study Business</option>
+                                <option value="others">Others</option>
+                      </select>
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" name="description" id="description" rows="5" placeholder="Descriptin" ></textarea>
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <label >Files(Photo and CV)</label>
+                      <input type="file" name="userfile[]" multiple="multiple" class="form-control" required >
+                      <p>*File name shouldn't contain space,MAX 2GB<p>
+                      <div class="validation"></div>
+                    </div>
+                    <input type="hidden" name="date" id="date" value="<?php  echo date("Y/m/d");?>">
+                    <div class="text-center"><button type="submit">Submit</button></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+              </div>
+          </div>
+        </div>
+    </section><!-- #facts -->
+
+
+<section id="skills">
       <div class="container">
 
         <header class="section-header">
@@ -339,98 +451,6 @@
 
       </div>
     </section>
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts"  class="wow fadeIn">
-      <div class="container">
-        <header class="section-header">
-          <h3>Study Abroad</h3>
-          <p>Enroll now for our STUDY ABROAD PROGRAM</p>
-        </header>
-        <div class="row counters">
-          <div class="col-md-4 text-center box">
-            <!--<span data-toggle="counter-up"></span>-->
-            <h4 class="title">STUDY MEDICINE</h4>
-              <p>Study Medicine in Poland</p>
-              <p>Study Medicine in Hungary</p>
-              <p>Study Medicine in Moldova</p>
-              <p>Study Medicine in Canada</p>
-              <p>We are not limited.........</p>
-          </div>
-          <div class="col-md-4 text-center box ">
-            <!--<span data-toggle="counter-up"></span>-->
-            <h4 class="title">STUDY ENGINEERING</h4>
-              <p>Study Engineering in Poland</p>
-              <p>Study Engineering in Canada</p>
-              <p>Study Engineering in India</p>
-              <p>Study Engineering in Australia</p>
-              <p>Study Engineering in Newsland</p>
-              <p>and much more.........</p>
-          </div>
-          <div class="col-md-4 text-center box ">
-            <!--<span data-toggle="counter-up"></span>-->
-            <h4 class="title">STUDY BUSINESS</h4>
-              <p>Study Business in Canada</p>
-              <p>Study Business in Hungary</p>
-              <p>Harvard Business School</p>
-              <p>University of Pennsylvania</p>
-              <p>Still counts.........</p>
-          </div>
-        </div>
-          <!--<div class="col-md-12 text-center facts-img">
-            <div class="form">
-              <!--<div id="sendmessage">Your message has been sent. Thank you!</div>-->
-              <!--<div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="required" data-msg="Please enter your name" />
-                    <div class="validation"></div>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                    <div class="validation"></div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" data-rule="phone" data-msg="Please enter a valid phone" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Institution/Organization:" data-rule="required" data-msg="Please enter institute name" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <select class="form-control" name="course" id="course" placeholder="Select your course">
-                    <option value="medicine" selected>Study Medicine</option>
-                            <option value="engineering">Study Engineering</option>
-                            <option value="business">Study Business</option>
-                            <option value="others">Others</option>
-                  </select>
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="descriptin" rows="5" placeholder="Descriptin" ></textarea>
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="file" name="userfile[]" multiple class="form-control">
-                  <p>*File name shouldn't contain space,MAX 2GB<p>
-                  <div class="validation"></div>
-                </div>
-                <input type="hidden" name="date" id="date" value="<?php  echo date("Y/m/d");?>">
-                <div class="text-center"><button type="submit">Submit</button></div>
-              </form>
-            </div>-->
-
-        <div class="facts-img">
-          <!--<img src="<?php echo base_url('assets/img/facts-img.png');?>" alt="" class="img-fluid">-->
-        </div>
-        
-      </div>
-    </section><!-- #facts -->
-
 
     <!--==========================
       Call To Action Section
@@ -489,9 +509,9 @@
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-web">Web</li>
-              <li data-filter=".filter-app">Design</li>
+              <li data-filter="*" class="filter-active">All Works</li>
+              <li data-filter=".filter-web">Web Development</li>
+              <li data-filter=".filter-app">Web Design</li>
             </ul>
           </div>
         </div>
@@ -508,7 +528,7 @@
 
               <div class="portfolio-info">
                 <h4><a href="#">Eco Wide</a></h4>
-                <p>Design</p>
+                <p>Web Design</p>
               </div>
             </div>
           </div>
@@ -538,7 +558,7 @@
 
               <div class="portfolio-info">
                 <h4><a href="#">Ewl</a></h4>
-                <p>Design</p>
+                <p>Web Design</p>
               </div>
             </div>
           </div>
@@ -569,7 +589,7 @@
 
               <div class="portfolio-info">
                 <h4><a href="#">Search Kerla</a></h4>
-                <p>Design</p>
+                <p>Web Design</p>
               </div>
             </div>
           </div>
@@ -620,6 +640,58 @@
 
       </div>
     </section><!-- #clients -->
+
+        <!--==========================
+      Careers Section
+    ============================-->
+        <section id="events" class="section-bg wow fadeInUp">
+          <div class="container">
+            <div class="section-header">
+              <h3>Events</h3>
+              <p>Take a look into our Events</p>
+            </div>
+            <div class="row events-container">
+              <?php
+              foreach($gallery as $gal)
+              {
+                $images = explode(',',$gal['image']);
+              ?>
+              <div class="col-lg-4 col-md-6 events-item filter-app wow fadeInUp">
+                <div class="events-wrap">
+                  <figure>
+                    <img src="<?php echo base_url('assets/gallery/');?><?php echo  $images[0];?>" class="img-fluid" alt="">
+                    <a href="javascript:void(0);" data-title="<?php echo $gal['name']?>" class="link-preview" title="Preview" onclick="show_gallery(<?php echo $gal['id']?>)">
+                      <i class="ion ion-eye"></i></a>
+                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  </figure>
+
+                  <div class="events-info">
+                    <h4><a href="#"><?php echo $gal['name']?></a></h4>
+                    <p><?php echo $gal['date']?></p>
+                  </div>
+                </div>
+              </div>
+              <?php } ?>
+            
+              <div class="panel-group col-lg-12" id="accordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                  <h4 class="panel-title">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  Collapsible Group Item #1
+                  </a>
+                  </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>                        
+    <!-- #careers -->
 
     <!--==========================
       Clients Section
@@ -697,98 +769,53 @@
     <!--==========================
       Team Section
     ============================-->
-    <!--<section id="team">
+    <section id="team">
       <div class="container">
         <div class="section-header wow fadeInUp">
           <h3>Team</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p>Meet Our Team</p>
         </div>
 
         <div class="row">
+          <?php
 
-          <div class="col-lg-3 col-md-6 wow fadeInUp">
+              foreach($team as $val)
+              {
+
+              ?>
+          <div class="col-lg-3 col-md-6 wow fadeInUp"  data-wow-delay="0.1s">
             <div class="member">
-              <img src="<?php echo base_url('assets/img/team-1.jpg');?>" class="img-fluid" alt="">
+              <img style="width:255px;height:255px;" src="<?php echo base_url();?>assets/img/team/<?php echo $val['image']?>" class="img-fluid" alt="<?php echo $val['name'];?>">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <div class="social">
+                  <h4><?php echo $val['name'];?></h4>
+                  <span><?php echo $val['designation'];?></span>
+                  <!--<div class="social">
                     <a href=""><i class="fa fa-twitter"></i></a>
                     <a href=""><i class="fa fa-facebook"></i></a>
                     <a href=""><i class="fa fa-google-plus"></i></a>
                     <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="member">
-              <img src="<?php echo base_url('assets/img/team-2.jpg');?>" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="member">
-              <img src="<?php echo base_url('assets/img/team-3.jpg');?>" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="member">
-              <img src="<?php echo base_url('assets/img/team-4.jpg');?>" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
 
         </div>
 
       </div>
     </section><!-- #team -->
 
+
     <!--==========================
       Contact Section
     ============================-->
     <section id="contact" class="section-bg wow fadeInUp">
+      <div id="map" style="width:100%;height:300px;"></div> 
+      <p></p>   
       <div class="container">
-
         <div class="section-header">
           <h3>Contact Us</h3>
           <p></p>
@@ -942,6 +969,54 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+<div id="events_gallery" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="col-md-12">
+       <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                              <li data-target="#myCarousel" data-slide-to="1"></li>
+                              <li data-target="#myCarousel" data-slide-to="2"></li>
+                          </ol>
+
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner">
+                              <div class="item active">
+                                <img id="sl1" style="width:50%;">
+                            </div>
+
+                            <div class="item">
+                                <img id="sl2"  style="width:50%;">
+                            </div>
+
+                            <div class="item">
+                                <img id="sl3"  style="width:50%;">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                      </a>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+    </div>
+</div>
+
+
   <!-- JavaScript Libraries -->
   <script src="<?php echo base_url('assets/lib/jquery/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/lib/jquery/jquery-migrate.min.js');?>"></script>
@@ -958,9 +1033,82 @@
   <script src="<?php echo base_url('assets/lib/touchSwipe/jquery.touchSwipe.min.js');?>"></script>
   <!-- Contact Form JavaScript File -->
   <script src="<?php echo base_url('assets/contactform/contactform.js');?>"></script>
-
   <!-- Template Main Javascript File -->
   <script src="<?php echo base_url('assets/js/main.js');?>"></script>
+      <script>
+        function myMap() {
+            var myCenter = new google.maps.LatLng(24.336954,54.530971);
+            var mapOptions = {
 
+                center: myCenter,
+                zoom:15,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var marker = new google.maps.Marker({position:myCenter});
+              marker.setMap(map);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx3uRsCBmDCkzfa6UHbyp6rjQVDsE9_hQ&callback=myMap"></script>
+
+  <script type="text/javascript">
+
+    function show_form(){
+      $("#enrollment_form").modal('show');
+    }
+
+    $(document).ready(function(){
+      $("#study_form").on('submit', function(e){
+        e.preventDefault();
+
+
+        var data = new FormData($(this))
+        $.ajax({
+            url: "<?php echo base_url('home/save_higher');?>",// url to your upload process file
+            type: "POST",
+            dataType:'json',
+            data:  new FormData(this),
+            contentType: false,
+            cache: true,
+            processData:false,        // tell jQuery not to set contentType
+            success: function(data)
+            {   
+              if(data == 1){
+                  $('#enrollment_form').find('#study_form').html("<p>Thankyou!! We will get back to you soon!!!</p>").show;
+
+                  setTimeout(function() {window.location = "<?php echo base_url('home');?>";}, 10000); 
+              }
+            }
+        });
+      });
+    });
+
+    function show_gallery(id){
+      $("#events_gallery").modal('show');
+
+          $.ajax({
+              url: "<?php echo base_url();?>home/fetch_gallary_modal/"+id,// url to your upload process file
+
+              type: "POST",
+              dataType:'json',
+
+              contentType: false,
+              cache: true,
+              processData:false,        // tell jQuery not to set contentType
+              success: function(data)
+              {   
+                  
+                var img = data[0].image.split(",");
+
+                $("#costumModal10").modal('show');
+
+                $("#modal_header").html(data[0].name);
+                $("#sl1").attr("src", "<?php echo base_url()?>assets/gallery/"+img[0]);
+                $("#sl2").attr("src", "<?php echo base_url()?>assets/gallery/"+img[1]);
+                $("#sl3").attr("src", "<?php echo base_url()?>assets/gallery/"+img[2]);
+              }
+          });
+    }
+  </script>
 </body>
 </html>

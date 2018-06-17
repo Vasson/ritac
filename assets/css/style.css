@@ -854,6 +854,27 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-top: 30px;
 }
 
+
+#facts .cta-btn {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 25px;
+    transition: 0.5s;
+    border: 2px solid #68005f;
+    color: #68005f;
+}
+
+#facts .cta-btn:hover {
+  background: #68005f;
+  border: 2px solid #68005f;
+   color: #fff;
+}
+
 /* Portfolio Section
 --------------------------------*/
 #portfolio {
@@ -999,6 +1020,189 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 14px;
   text-transform: uppercase;
 }
+
+
+/* Events Section
+--------------------------------*/
+#events {
+  padding: 60px 0;
+}
+
+#events #events-flters {
+  padding: 0;
+  margin: 5px 0 35px 0;
+  list-style: none;
+  text-align: center;
+}
+
+#events #events-flters li {
+  cursor: pointer;
+  margin: 15px 15px 15px 0;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #666666;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: #fff;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+#events #events-flters li:hover, #events #events-flters li.filter-active {
+  background: #68005f;
+  color: #fff;
+}
+
+#events #events-flters li:last-child {
+  margin-right: 0;
+}
+
+#events .events-wrap {
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+#events .events-wrap:hover {
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+#events .events-item {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+}
+
+#events .events-item figure {
+  background: #000;
+  overflow: hidden;
+  height: 240px;
+  position: relative;
+  border-radius: 4px 4px 0 0;
+  margin: 0;
+}
+
+#events .events-item figure:hover img {
+  opacity: 0.4;
+  transition: 0.3s;
+}
+
+#events .events-item figure .link-preview, #events .events-item figure .link-details {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  line-height: 1;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.2s linear;
+}
+
+#events .events-item figure .link-preview i, #events .events-item figure .link-details i {
+  padding-top: 6px;
+  font-size: 22px;
+  color: #333;
+}
+
+#events .events-item figure .link-preview:hover, #events .events-item figure .link-details:hover {
+  background: #68005f;
+}
+
+#events .events-item figure .link-preview:hover i, #events .events-item figure .link-details:hover i {
+  color: #fff;
+}
+
+#events .events-item figure .link-preview {
+  left: calc(50% - 38px);
+  top: calc(50% - 18px);
+}
+
+#events .events-item figure .link-details {
+  right: calc(50% - 38px);
+  top: calc(50% - 18px);
+}
+
+#events .events-item figure:hover .link-preview {
+  opacity: 1;
+  left: calc(50% - 44px);
+}
+
+#events .events-item figure:hover .link-details {
+  opacity: 1;
+  right: calc(50% - 44px);
+}
+
+#events .events-item .events-info {
+  background: #fff;
+  text-align: center;
+  padding: 30px;
+  height: 90px;
+  border-radius: 0 0 3px 3px;
+}
+
+#events .events-item .events-info h4 {
+  font-size: 18px;
+  line-height: 1px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 0;
+}
+
+#events .events-item .events-info h4 a {
+  color: #333;
+}
+
+#events .events-item .events-info h4 a:hover {
+  color: #68005f;
+}
+
+#events .events-item .events-info p {
+  padding: 0;
+  margin: 0;
+  color: #b8b8b8;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+
+.wrapper{
+  width:70%;
+}
+@media(max-width:992px){
+ .wrapper{
+  width:100%;
+} 
+}
+.panel-heading {
+  padding: 0;
+  border:0;
+}
+.panel-title>a, .panel-title>a:active{
+  display:block;
+  padding:15px;
+  color:#555;
+  font-size:16px;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  word-spacing:3px;
+  text-decoration:none;
+}
+.panel-heading  a:before {
+   font-family: 'Glyphicons Halflings';
+   content: "\e114";
+   float: right;
+   transition: all 0.5s;
+}
+.panel-heading.active a:before {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+} 
 
 /* Clients Section
 --------------------------------*/
@@ -1269,8 +1473,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form #sendmessage {
-  color: #68005f;
-  border: 1px solid #68005f;
+  color: #28a745;
+  border: 1px solid #28a745;
   display: none;
   text-align: center;
   padding: 15px;
@@ -1320,9 +1524,30 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #68005f;
 }
 
+/*Study abroad*/
+#enrollment_form .form button[type="submit"] {
+  background: #68005f;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#enrollment_form .form button[type="submit"]:hover {
+  background: #68005f;
+}
+
+
+/* Contact Section
+--------------------------------*/
+
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+
+
 #footer {
   background: #000;
   padding: 0 0 30px 0;
