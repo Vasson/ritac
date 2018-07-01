@@ -20,19 +20,19 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-
 		$data['services']=$this->Common_model->fetch_services();
 		$data['gallery']=$this->Common_model->fetch_gallery();
 		$data['projects']=$this->Common_model->fetch_projects();
 		$data['team']=$this->Common_model->fetch_team();
 		$data['careers']=$this->Common_model->fetch_careers();
-
+		$data['events']=$this->Common_model->fetch_events();
 		$this->load->view('home',$data);
 
 	}
 
 	public function careers(){
-		$this->load->view('careers');
+		$data['careers']=$this->Common_model->fetch_careers();
+		$this->load->view('careers',$data);
 	}
 
 
@@ -111,7 +111,7 @@ class Home extends CI_Controller
 	{   
 					//upload an image options
 		$config = array();
-		$config['upload_path'] = './it_doc/';
+		$config['upload_path'] = './assets/it_doc/';
 		$config['allowed_types'] = 'jpg|jpeg|png|pdf|txt|docx|doc|xlsx';
 		$config['max_size']      = '2048';
 		$config['overwrite']     = FALSE;
@@ -125,7 +125,7 @@ class Home extends CI_Controller
           redirect('admin');
 		}
 		$data['it']=$this->Common_model->fetch_it();
-		$this->load->view('itview',$data);
+		$this->load->view('admin/itview',$data);
 	}
 	/*IT///////*/
 
@@ -180,7 +180,7 @@ class Home extends CI_Controller
 	{   
 					//upload an image options
 		$config = array();
-		$config['upload_path'] = './it_doc/';
+		$config['upload_path'] = './assets/it_doc/';
 		$config['allowed_types'] = 'jpg|jpeg|png|pdf|txt|docx|doc|xlsx';
 		$config['max_size']      = '2048';
 		$config['overwrite']     = FALSE;
@@ -194,7 +194,7 @@ class Home extends CI_Controller
           redirect('admin');
 		}
 		$data['training']=$this->Common_model->fetch_training();
-		$this->load->view('trainingview',$data);
+		$this->load->view('admin/trainingview',$data);
 	}
 	/*TRAINING///////*/
 
@@ -295,7 +295,7 @@ class Home extends CI_Controller
          </tr>
             
 		</table>';
-		$path='./it_doc/';
+		$path='./assets/it_doc/';
           $this->email->set_mailtype("html");
 		$this->load->library('email', $config);
 		$this->email->from($email); 
@@ -312,7 +312,7 @@ class Home extends CI_Controller
 	{   
 					//upload an image options
 		$config = array();
-		$config['upload_path'] = './it_doc/';
+		$config['upload_path'] = './assets/it_doc/';
 		$config['allowed_types'] = 'jpg|jpeg|png|pdf|txt|docx|doc|xlsx';
 		$config['max_size']      = '2048';
 		$config['overwrite']     = FALSE;
@@ -326,7 +326,7 @@ class Home extends CI_Controller
           redirect('admin');
 		}
 		$data['higher']=$this->Common_model->fetch_higher();
-		$this->load->view('higherview',$data);
+		$this->load->view('admin/higherview',$data);
 	}
 	/*HIGHER///////*/
 
@@ -376,7 +376,7 @@ class Home extends CI_Controller
 			$data['image']=$names;/*serialize($names);*/
 		} 
 	    
-		//$this->Common_model->submit_career_applications($data);
+		$this->Common_model->submit_career_applications($data);
 		$config = Array(        
 			'protocol' => 'sendmail',
 			'smtp_host' => 'localhost',
@@ -414,12 +414,11 @@ class Home extends CI_Controller
          </tr>
             
 		</table>';
-		$path='./career_doc/';
+		$path='./assets/career_doc/';
           $this->email->set_mailtype("html");
 		$this->load->library('email', $config);
 		$this->email->from($email); 
 		$this->email->to('careers@ritactechnolabs.com'); 
-		
 		$this->email->subject('CAREER');
 		$this->email->message($message);
 		$this->email->attach($path.'/'.$names);	
@@ -432,7 +431,7 @@ class Home extends CI_Controller
 	{   
 					//upload an image options
 		$config1 = array();
-		$config1['upload_path'] = './career_doc/';
+		$config1['upload_path'] = './assets/career_doc/';
 		$config1['allowed_types'] = 'jpg|jpeg|png|pdf|txt|docx|doc|xlsx';
 		$config1['max_size']      = '2048';
 		$config1['overwrite']     = FALSE;
@@ -446,13 +445,13 @@ class Home extends CI_Controller
           redirect('admin');
 		}
 		$data['career_applications']=$this->Common_model->fetch_career_applications();
-		$this->load->view('career_application_view',$data);
+		$this->load->view('admin/career_application_view',$data);
 	}
 	/*CAREER APPLICATIONS///////*/
 
 	public function admin()
 	{
-		$this->load->view('login');
+		$this->load->view('admin/login');
 	}
 public function check()
 	{
@@ -477,7 +476,12 @@ public function check()
 		{
           redirect('admin');
 		}
-		$this->load->view('application');
+		$data['partners']=$this->Common_model->fetch_partners();
+		$data['contacts']=$this->Common_model->fetch_contacts();
+		$data['career']=$this->Common_model->fetch_career_applications();
+		$data['higher']=$this->Common_model->fetch_higher();
+
+		$this->load->view('admin/application',$data);
 
 	}
 	public function logout()
@@ -492,7 +496,7 @@ public function check()
           redirect('admin');
 		}
 		$data['services']=$this->Common_model->fetch_services();
-		$this->load->view('services',$data);
+		$this->load->view('admin/services',$data);
 	}
 	public function add_services()
 	{
@@ -501,7 +505,7 @@ public function check()
           redirect('admin');
 		}
 		// $id=$this->uri->segment(3);
-		$this->load->view('add_services');
+		$this->load->view('admin/add_services');
 	}
 	public function submit_services()
 	{ 
@@ -523,7 +527,7 @@ public function check()
 		}
 		$id=$this->uri->segment(3);
 		$data['services']=$this->Common_model->edit_services($id);
-		$this->load->view('edit_services',$data);	
+		$this->load->view('admin/edit_services',$data);	
 	}
 	public function update_services()
 	{
@@ -547,7 +551,7 @@ public function check()
 		$id=$this->uri->segment(3);
 		$this->db->where('id',$id);
 	   $this->db->delete('services');
-	   header("Location: http://localhost/ritactechnolabs.com/home/application");
+	   header("Location: ".base_url("home/services")."");
 	}
 
 	/*GALLRY APP*/
@@ -559,7 +563,7 @@ public function check()
           redirect('admin');
 		}
 		$data['gallery']=$this->Common_model->fetch_gallery();
-		$this->load->view('gallary',$data);
+		$this->load->view('admin/gallary',$data);
 	}
 	public function add_gallary()
 	{
@@ -567,7 +571,7 @@ public function check()
 		{
           redirect('admin');
 		}
-		$this->load->view('add_gallary');
+		$this->load->view('admin/add_gallary');
 	}
 	public function submit_gallary()
 	{
@@ -577,7 +581,7 @@ public function check()
 		}
 		$data['name']=$this->input->post('gal_name');
 		$data['date']=$this->input->post('gal_date');
-		$data['icon']=$this->input->post('gal_icon');
+		//$data['icon']=$this->input->post('gal_icon');
 		$data['description']=$this->input->post('gal_description');
 		$files = $_FILES;
 
@@ -632,8 +636,10 @@ public function check()
 		}
 		$id=$this->uri->segment(3);
 		$data['gallary']=$this->Common_model->edit_gallary($id);
-		$this->load->view('edit_gallary',$data);	
+		$this->load->view('admin/edit_gallary',$data);	
 	}
+
+
 	public function update_gallary()
 	{
 		if(!($this->session->userdata('log_id')))
@@ -641,15 +647,16 @@ public function check()
           redirect('admin');
 		}
 		$id=$this->input->post('cid');
+		$img_count = $this->input->post('img_old_count');
 		
 		$data['name']=$this->input->post('gal_name');
 		$data['date']=$this->input->post('gal_date');
-		$data['icon']=$this->input->post('gal_icon');
+		//$data['icon']=$this->input->post('gal_icon');
 		$data['description']=$this->input->post('gal_description');
 		$files = $_FILES;
 
 		$cpt = count($_FILES['userfile']['name']);
-		
+		$img = array();
 		for($i=0; $i<$cpt; $i++)
 		{           
 			$_FILES['userfile']['name']=$img_name=$files['userfile']['name'][$i];
@@ -659,31 +666,41 @@ public function check()
 			$_FILES['userfile']['size']= $img_size=$files['userfile']['size'][$i]; 
 
 
-			if ($img_name=='')
+			if ($img_name!='')
 			{
-				echo '<script language="javascript">';
-				echo 'alert("Please select a file")';
-				echo '</script>';
-				exit();
-			}
-			else
-			{      
-
 				$this->upload->initialize($this->set_vehicle_upload_options_gallary());
 				$this->upload->do_upload();
 				$file=$this->upload->data();
 				$img[]=  $img_name;  /*$file['file_name'];*/
 			}
-			$names= implode(',', $img);
-			$data['image']=$names;/*serialize($names);*/
-		    $this->Common_model->update_gallary($data,$id);
-		    $var=1;
-		    echo $var;	
-			exit;
-	  }
-	 
+		}
+
+		if($img_count != 0)
+		{
+			$old_image = $this->input->post('old_image');
+			
+			if($img_name!=''){
+				$img = array_merge($old_image,$img);
+			}
+			else{
+				$img = $old_image;
+			}
+		}
+
+		/*echo "<pre>";
+		print_r($img);
+		exit;*/
+
+		$names= implode(',', $img);
+		$data['image']=$names;/*serialize($names);*/
+
+	    $this->Common_model->update_gallary($data,$id);
+	    $var=1;
+	    echo $var;	
+		exit;
 
 	}
+
 	 public function delete_gallary()
 	  {
 	  	if(!($this->session->userdata('log_id')))
@@ -693,7 +710,7 @@ public function check()
 	  	$id=$this->uri->segment(3);
 		$this->db->where('id',$id);
 	   $this->db->delete('gallery');
-	   header("Location: http://localhost/ritactechnolabs.com/home/application");
+	   header("Location: ".base_url("home/gallary")."");
 	  }
 	/*////////////GALLRY APP*/
            
@@ -706,7 +723,7 @@ public function check()
           redirect('admin');
 		}
 		$data['careers']=$this->Common_model->fetch_careers();
-		$this->load->view('careers',$data);
+		$this->load->view('admin/careers',$data);
 	}
 	public function add_careers()
 	{
@@ -714,8 +731,7 @@ public function check()
 		{
           redirect('admin');
 		}
-		// $id=$this->uri->segment(3);
-		$this->load->view('add_careers');
+		$this->load->view('admin/add_careers');
 	}
 	public function submit_careers()
 	{ 
@@ -739,7 +755,7 @@ public function check()
 		}
 		$id=$this->uri->segment(3);
 		$data['careers']=$this->Common_model->edit_careers($id);
-		$this->load->view('edit_careers',$data);	
+		$this->load->view('admin/edit_careers',$data);	
 	}
 	public function update_careers()
 	{
@@ -752,6 +768,11 @@ public function check()
 		$data['left_heading']=$this->input->post('left_heading');
 		$data['right_heading']=$this->input->post('right_heading');
 		$data['right_content']=$this->input->post('right_content');
+
+		/*echo "<pre>";
+		print_r($data);
+		exit;*/
+
 		$true=$this->Common_model->update_careers($data,$id);
 		echo $true;	
 	}
@@ -764,7 +785,7 @@ public function check()
 		$id=$this->uri->segment(3);
 		$this->db->where('id',$id);
 	   $this->db->delete('careers');
-	   header("Location: http://localhost/ritactechnolabs.com/home/application");
+	   header("Location: ".base_url("home/enter_careers")."");
 	}
      
      /*/////////////ENTER CAREERS*/
@@ -776,7 +797,7 @@ public function check()
           redirect('admin');
 		}
 		$data['projects']=$this->Common_model->fetch_projects();
-		$this->load->view('projects',$data);
+		$this->load->view('admin/projects',$data);
 	}
 	public function add_projects()
 	{
@@ -784,7 +805,7 @@ public function check()
 		{
           redirect('admin');
 		}
-		$this->load->view('add_projects');
+		$this->load->view('admin/add_projects');
 	}
 	public function submit_projects()
 	{
@@ -850,7 +871,7 @@ public function check()
 		$id=$this->uri->segment(3);
 		$data['projects']=$this->Common_model->edit_projects($id);
 
-		$this->load->view('edit_projects',$data);
+		$this->load->view('admin/edit_projects',$data);
 	}
 	public function update_projects()
 	{
@@ -909,7 +930,7 @@ public function check()
     	$id=$this->uri->segment(3);
 		$this->db->where('id',$id);
 	   $this->db->delete('project');
-	   header("Location: http://localhost/ritactechnolabs.com/home/application");
+	   header("Location: ".base_url("home/projects")."");
     }
 
     /*---------projects*/
@@ -924,7 +945,7 @@ public function check()
           redirect('admin');
 		}
 		$data['team']=$this->Common_model->fetch_team();
-		$this->load->view('team',$data);
+		$this->load->view('admin/team',$data);
 	}
 	public function add_team()
 	{
@@ -932,7 +953,7 @@ public function check()
 		{
           redirect('admin');
 		}
-		$this->load->view('add_team');
+		$this->load->view('admin/add_team');
 	}
 	public function submit_team()
 	{
@@ -979,7 +1000,7 @@ public function check()
 	{   
 					//upload an image options
 		$config = array();
-		$config['upload_path'] = './vendors/images/team/';
+		$config['upload_path'] = './assets/img/team/';
 		$config['allowed_types'] = 'jpg|jpeg|png|pdf|txt|docx|doc|xlsx';
 		$config['max_size']      = '1024';
 		$config['overwrite']     = FALSE;
@@ -994,7 +1015,7 @@ public function check()
 		$id=$this->uri->segment(3);
 		$data['team']=$this->Common_model->edit_team($id);
 
-		$this->load->view('edit_team',$data);
+		$this->load->view('admin/edit_team',$data);
 	}
 	public function update_team()
        {
@@ -1054,7 +1075,7 @@ public function check()
     	$id=$this->uri->segment(3);
 		$this->db->where('id',$id);
 	   $this->db->delete('team');
-	   header("Location: http://localhost/ritactechnolabs.com/home/application");
+	   header("Location: ".base_url("home/team")."");
     }
     /*////////////TEAM//////////*/
 
@@ -1083,10 +1104,9 @@ public function save_details()
 		$this->load->library('email', $config);
 		$this->email->from($email); 
 		$this->email->to('info@ritactechnolabs.com'); 
-		
 		$this->email->subject('Enquiry from website',$subject);
 		$this->email->message($message);	
-		//$sent=$this->email->send();
+		$sent=$this->email->send();
 		$var="OK";
 		echo $var;
 		
@@ -1095,8 +1115,7 @@ public function save_details()
 
 	public function become_a_partner()
 	{
-		$data['view']='become_a_partner';
-		$this->load->view('outer_template',$data);
+		$this->load->view('become_a_partner');
 	}
 	public function partner_details()
 	{
@@ -1108,6 +1127,7 @@ public function save_details()
 		$data['website']=$website=$this->input->post('website');
 		$data['address']=$address=$this->input->post('address');
 		$data['city']=$city=$this->input->post('city');
+		$data['state']=$city=$this->input->post('state');
 		$data['company']=$company=$this->input->post('company');
 		$data['company_year']=$company_year=$this->input->post('company_year');
 		$data['customers']=$customers=$this->input->post('customers');
@@ -1126,6 +1146,9 @@ public function save_details()
 		$data['contact_name2']=$contact_name2=$this->input->post('contact_name2');
 		$data['contact_tel2']=$contact_tel2=$this->input->post('contact_tel2');
 		$data['contact_email2']=$contact_email2=$this->input->post('contact_email2');
+
+		$partner_id=$this->Common_model->add_partner($data);
+
 		$config = Array(        
 			'protocol' => 'sendmail',
 			'smtp_host' => 'localhost',
@@ -1253,15 +1276,126 @@ public function save_details()
 		$this->email->subject('Partner Request');
 		$this->email->message($message);	
 		$sent=$this->email->send();
-		$var="not_exist";
+		$var= 1;
 		echo $var;
 	}
 	public function partner_modal()
 	{
-		$data['view']='partner_modal';
-		$this->load->view('outer_template',$data);
+		$this->load->view('partner_modal');
 	}
 
+/*events*/
+	public function events(){
+		if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$data['events']=$this->Common_model->fetch_events();
+		$this->load->view('admin/events',$data);
+	}
 
+	public function submit_event()
+	{
+		if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$data['name']=$this->input->post('event_name');
+		$date_array = explode(' ', $this->input->post('event_date'));
+		$date = date("Y-m-d", strtotime($date_array[0])); 
+		$time = $date_array[1].' '.$date_array[2];
+		$data['date']= $date ;
+		$data['time']= $time;
+		$data['location']= $this->input->post('event_location');
+		$data['description']= ($this->input->post('event_description'));
+		$this->Common_model->insert_event($data);
+		$var=1;
+		echo $var;	
+	}
+
+	public function add_event()
+	{
+		if(!($this->session->userdata('log_id')))
+		{
+		redirect('admin');
+		}
+		$this->load->view('admin/add_event');
+	}
+
+	public function edit_event()
+	{
+		if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$id=$this->uri->segment(3);
+		$data['events']=$this->Common_model->edit_event($id);
+
+		$this->load->view('admin/edit_event',$data);
+	}
+
+	public function update_event()
+       {
+       	if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$id=$this->input->post('cid');
+		
+		$data['name']=$this->input->post('event_name');
+		$date_array = explode(' ', $this->input->post('event_date'));
+		$date = date("Y-m-d", strtotime($date_array[0])); 
+		$time = $date_array[1].' '.$date_array[2];
+		$data['date']= $date ;
+		$data['time']= $time;
+		$data['location']= $this->input->post('event_location');
+		$data['description']= ($this->input->post('event_description'));
+	    $this->Common_model->update_event($data,$id);
+	    $var=1;
+	    echo $var;	
+		exit;
+
+    }
+
+	public function delete_event()
+	{
+		if(!($this->session->userdata('log_id')))
+		{
+		redirect('admin');
+		}
+		$id=$this->uri->segment(3);
+		$this->db->where('id',$id);
+		$this->db->delete('events');
+		header("Location: ".base_url("home/events")."");
+	}
+
+	public function partners(){
+		if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$data['partners']=$this->Common_model->fetch_partners();
+		$this->load->view('admin/partners',$data);
+	}
+
+	public function view_partner(){
+		if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$id=$this->uri->segment(3);
+		$data['partners']=$this->Common_model->view_partner($id);
+
+		$this->load->view('admin/view_partner',$data);
+	}
+
+	public function contacts(){
+		if(!($this->session->userdata('log_id')))
+		{
+          redirect('admin');
+		}
+		$data['contacts']=$this->Common_model->fetch_contacts();
+		$this->load->view('admin/contacts',$data);
+	}
 }
 ?>

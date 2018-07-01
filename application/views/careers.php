@@ -1,245 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RITAC</title>
-    <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
-
-    <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/fevicon.png">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-
-    <!-- Bootstrap CSS File -->
-    <link href="<?php echo base_url('assets/lib/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
-
-    <!-- Libraries CSS Files -->
-    <link href="<?php echo base_url('assets/lib/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/lib/animate/animate.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/lib/ionicons/css/ionicons.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/lib/owlcarousel/assets/owl.carousel.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/lib/lightbox/css/lightbox.min.css'); ?>" rel="stylesheet">
-
-    <!-- Main Stylesheet File -->
-    <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
-  </head>
+<?php $this->load->view('templates/header'); ?>
 
 <body>
-
-  <!--==========================
-    Header
-  ============================-->
-  <header id="header">
-    <div class="container-fluid">
-
-      <div id="logo" class="pull-left">
-        <!--<h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="<?php echo base_url('assets/img/web logo.png');?>" alt="" title="" /></a>
-      </div>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#facts">Study Abroad</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li class="menu-has-children"><a href="">Partners</a>
-            <ul>
-              <li><a href="<?php echo base_url('home/become_a_partner')?>">Become A Partner</a></li>
-              <li><a href="<?php echo base_url('home/partner_modal')?>">Partnership Modals</a></li>
-              <li><a href="#">Promoters</a></li>
-              <li><a href="#">Investores</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
+<?php $this->load->view('templates/menu'); ?>
+  
+<section id="graph" class="masthead text-center text-white" style="background: url(../assets/img/graph.gif);">
+  <div class="masthead-content">
+    <div class="container">
+      <h1 class="masthead-heading mb-0">Grow with us!!</h1>
+      <h2 class="masthead-subheading mb-0">Earn with us!!</h2>
     </div>
-  </header><!-- #header -->
-
-<section id="intro">
-    <div class="intro-container">
-      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
-
-        <ol class="carousel-indicators"></ol>
-
-        <div class="carousel-inner" role="listbox">
-
-          <div class="carousel-item active">
-            <div class="carousel-background"><img src="<?php echo base_url('assets/img/intro-carousel/slider2.jpg');?>" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Stunning Web Applications</h2>
-                <p>For Enterprising People</p>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="<?php echo base_url('assets/img/intro-carousel/slider3.jpg');?>" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Unique and customizable Web designs with Responsive Theme</h2>
-                <p></p>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="<?php echo base_url('assets/img/intro-carousel/slider4.jpg');?>" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Co-orperate, teachers, students Training.</h2>
-                <p></p>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="<?php echo base_url('assets/img/intro-carousel/slider5.jpg');?>" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Study Abroad with RITAC Benefits</h2>
-                <p></p>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-
-        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-
-      </div>
-    </div>
-  </section><!-- #intro -->
+  </div>
+ 
+</section><!-- #graph -->
 
   <main id="main">
-  </main>
-
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer">
-    <div class="footer-top">
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="career" class="section-bg wow fadeInUp">  
       <div class="container">
+        <div class="section-header">
+          <h3>Careers</h3>
+          <p>Check out our latest careers</p>
+        </div>
         <div class="row">
-
-          <!--<div class="col-lg-3 col-md-6 footer-info">
-            <h3>BizPage</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-          </div>-->
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Events</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Study Abroad</a></li>
-            </ul>
+          <div class="col-lg-12 col-md-12 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-arrow-graph-up-right"></i></div>
+            <h4 class="title">Make a difference by your way</h4>
+            <p>Work where you are inspired to explore your passions & dreams, where your talents & Creativeness are nurtured and cultivated. Innovate with edge technologies on some of the coolest projects you can never imagine. And get the tools, that you need to keep learning and growing so you stay continually ahead of the game while making a difference in this world.</p><br/>
+            <p class="text-center quote"><img src="<?php echo base_url('assets/img/quote-sign-left.png')?>" class="quote-sign-left" alt="">The talent recruited and developed by businesses will play a major role in achieving economic independence.<img src="<?php echo base_url('assets/img/quote-sign-right.png')?>" class="quote-sign-right" alt=""></p>
           </div>
+        </div>
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p><strong>Address:</strong>
-              P.O.Box:53031 <br>
-              Office No:M-03, BLD No:p/343<br>
-              Behind UAE Exchange <br>
-              Shabia-10, Mussafah, Abu Dhabi, UAE <br>
-              <strong>Phone:</strong> +97126710212, +971507809135, +971552595064<br>
-              <strong>Email:</strong> info@ritactechnolabs.com<br>
-            </p>
-
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Our Another Wing</h4>
-            <p>
-              RITAC Techolabs Pvt. Ltd. <br>
-              Kochin<br>
-              Kerla India <br>
-            </p>
-
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Follow Us</h4>
-           <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-search"></i></div>
+            <h4 class="title">Current Openings</h4>
+            <p>Explore internships and jobs at RITAC & RITAC TECHNOLABS. Each location offers a wide range of opportunities.</p>
+            <?php    
+            $i=1;
+            foreach($careers as $car)
+            {
+            ?>
+          <div class="panel-group" id="accordion-<?php echo $i;?>">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-<?php echo $i;?>" href="#collapse<?php echo $i?>">
+                    <?php echo $car['left_heading'];?>
+                    <?php echo $car['left_date'];?>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapse<?php echo $i?>" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <h3 class="job-title"><?php echo $car['right_heading'];?></h3>
+                  <?php echo $car['right_content'];?>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!--<div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit"  value="Subscribe">
-            </form>
-          </div>-->
-
+            <?php
+              $i++;
+            }
+            ?>
+          </div>
+          <div class="form col-lg-6 col-md-6">
+            <div class="icon"><i class="ion-edit"></i></div>
+            <h4 class="title">Apply Now</h4>
+            <form action="" method="post" role="form" class="careerForm" id="careerForm">
+              <div id="sendmessage">Thank you!! We will get back to you soon!!!</div>
+                <div class="form-row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <input type="number" class="form-control" name="phone" id="phone" placeholder="Your Phone" required/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <input type="text" class="form-control" name="position" id="position" placeholder="Position Appliying For" required/>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <textarea class="form-control" name="description" rows="5" placeholder="Message"></textarea>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <label>Resume</label>
+                    <input type="file" class="form-control" name="userfile[]" id="resume" required/>
+                    <p class='note'>*File name shouldn't contain space, MAX 2GB</p>
+                  </div>
+                </div>
+                <input type="hidden" name="date" id="date" value="<?php  echo date("Y/m/d");?>">
+                <div class="text-center"><button class="btn btn-lg" type="submit">Apply</button></div>
+              </form>
+            <div>
         </div>
+      <div>
+    </section><!-- #contact -->
+  </main>
+
+<!--  IT MODAL   -->
+
+<div id="itModal" class="modal fade" role="dialog" style="z-index:  100001 !important;">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!--<h4 class="modal-title">Modal Header</h4>-->
+      </div>
+      <div class="modal-body">
+        <p class="success">Thank you!! We will get back to you soon!!!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>2018 RITAC</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
-        Designed by <a href="http://ritactechnolabs.com">RITAC IT TEAM</a>
-      </div>
-    </div>
-  </footer><!-- #footer -->
+  </div>
+</div>
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!--  /IT MODAL  -->
 
-  <!-- JavaScript Libraries -->
-  <script src="<?php echo base_url('assets/lib/jquery/jquery.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/jquery/jquery-migrate.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/easing/easing.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/superfish/hoverIntent.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/superfish/superfish.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/wow/wow.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/waypoints/waypoints.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/counterup/counterup.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/owlcarousel/owl.carousel.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/isotope/isotope.pkgd.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/lightbox/js/lightbox.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/lib/touchSwipe/jquery.touchSwipe.min.js');?>"></script>
+  <?php $this->load->view('templates/footer'); ?>
 
-  <!-- Template Main Javascript File -->
-  <script src="<?php echo base_url('assets/js/main.js');?>"></script>
+  <script type="text/javascript">
+    
+        $(document).ready(function(){
+          $('#sendmessage').hide();
+      $("#careerForm").on('submit', function(e){
+        e.preventDefault();
+
+
+        var data = new FormData($(this))
+        $.ajax({
+            url: "<?php echo base_url('home/save_career_applications');?>",// url to your upload process file
+            type: "POST",
+            dataType:'json',
+            data:  new FormData(this),
+            contentType: false,
+            cache: true,
+            processData:false,        // tell jQuery not to set contentType
+            success: function(data)
+            {   
+              if(data == 1){
+                $('#careerForm').find("input, textarea").val("");
+                $("#itModal").modal('show');
+              setTimeout(function() {window.location = "<?php echo base_url('home/careers');?>";}, 10000);
+              }
+              
+            }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

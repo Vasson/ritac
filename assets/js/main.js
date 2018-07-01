@@ -100,7 +100,8 @@ jQuery(document).ready(function( $ ) {
 
   // Header scroll class
   $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
+    console.log($(this).scrollTop());
+    if ($(this).scrollTop() > 50) {
       $('#header').addClass('header-scrolled');
     } else {
       $('#header').removeClass('header-scrolled');
@@ -158,7 +159,7 @@ jQuery(document).ready(function( $ ) {
     autoplay: true,
     dots: true,
     loop: true,
-    responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 6 }
+    responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 5 }
     }
   });
 
@@ -167,7 +168,26 @@ jQuery(document).ready(function( $ ) {
     autoplay: true,
     dots: true,
     loop: true,
-    items: 1
+    items: 1,
+  });
+
+
+    // Event Gallery carousel (uses the Owl Carousel library)
+  $(".event-gallery-carousel").owlCarousel({
+    autoplay: false,
+    dots: false,
+    loop: true,
+    items: 1,
+    nav    : true,
+    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+    singleItem:true,
+    autoHeight : true,
+    animateIn: 'fadeIn',
+    animateOut: 'fadeOut',
+    slideSpeed: 300,
+    paginationSpeed: 400,
+    margin:10,
+    lazyLoad : true,
   });
 
 });
