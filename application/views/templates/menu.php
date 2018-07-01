@@ -63,7 +63,7 @@
               <li><a href="<?php echo base_url('home/become_a_partner')?>">Become A Partner</a></li>
               <li><a href="<?php echo base_url('home/partner_modal')?>">Partnership Models</a></li>
               <li><a href="<?php echo base_url()?>#">Promoters</a></li>
-              <li><a href="<?php echo base_url()?>#">Investores</a></li>
+              <li><a href="<?php echo base_url()?>#">Investors</a></li>
             </ul>
           </li>
           <li><a href="<?php echo base_url()?>#events">Events</a></li>

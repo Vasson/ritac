@@ -734,8 +734,8 @@
             success: function(data)
             {   
               if(data == 1){
-
                   $('#enrollment_form').find('#study_form').html("<p class='success'>Thank you!! We will get back to you soon!!!</p>").show;
+
                   setTimeout(function() {window.location = "<?php echo base_url('home');?>";}, 10000); 
               }
             }

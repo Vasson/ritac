@@ -38,9 +38,9 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Our Another Wing</h4>
             <p>
-              RITAC Techolabs Pvt. Ltd. <br>
+              RITAC Technolabs Pvt. Ltd. <br>
               Kochi,<br>
-              Kerla, India<br>
+              Kerala, India<br>
             </p>
 
           </div>
